@@ -1,2 +1,8 @@
 # WEC-P
- Waterloo Engineer Competition
+ Waterloo Engineer Competition - Programming
+
+Authors:
+@JekkuChen
+@Jessie Huang
+@Peter Huang
+@Alex Yang
