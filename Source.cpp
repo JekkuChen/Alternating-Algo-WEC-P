@@ -5,12 +5,12 @@
 
 using namespace std;
 
-
+void ActionR(int max_c, int dimx, int dimy, int x, int y, int botnum, int** board);
 int** createBoard(int dimx, int dimy);
 void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board);
 int main();
 void FileWriteR(int botnum, vector<int> botposx, vector<int> botposy);
-ofstream solu_file("sol.txt");
+ofstream solu_file("sol5.txt");
 string name[12] = { "peter","alex","jekku","jessie","rob","bob","billy","cleany","chad", "ian", "ryan", "stephen" }; //Add more if you want
 
 void FileWriteR(int botnum, vector<int> botposx,vector<int> botposy) { //Keep in mind, coordinate system in code is (N+1)X(M+1). JSON output needs to be in 0,0;
@@ -40,7 +40,7 @@ int** createBoard(int dimx, int dimy) {
 void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board) {
 
 	ifstream prob_file;
-	prob_file.open("case2.txt");
+	prob_file.open("case5.txt");
 	if (prob_file.is_open()) {           
 		prob_file >> max_c >> max_f >> dimx >> dimy;
 		board = createBoard(dimx, dimy); //Create Board
