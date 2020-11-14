@@ -1,8 +1,9 @@
 # WEC-P
  Waterloo Engineer Competition - Programming
+Programming Team #3
 
 Authors:
-@JekkuChen
-@Jessie0317
+@JekkuChen (Joey Chen)
+@Jessie0317 (Jessie Huang)
 @Peter Huang
-@Alex Yang
+@YMRTZ (Alex Yang)
