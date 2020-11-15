@@ -2,18 +2,22 @@
 #include <fstream>
 #include <string>
 #include <vector>
-
 using namespace std;
 
-
+void ActionDownRight(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board);
+void ActionDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board);
+void ActionUpLeft(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board); 
+void ActionUp(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board)
+void ActionUpDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int**board);
 int** createBoard(int dimx, int dimy);
 void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board);
-int main();
 void FileWriteR(int botnum, vector<int> botposx, vector<int> botposy);
-ofstream solu_file("solution5.txt");
-string name[12] = { "peter","alex","jekku","jessie","rob","bob","billy","cleany","chad", "ian", "ryan", "stephen" }; //Add more if you want
 
-void FileWriteR(int botnum, vector<int> botposx,vector<int> botposy) { //Keep in mind, coordinate system in code is (N+1)X(M+1). JSON output needs to be in 0,0;
+
+ofstream solu_file("solution5.txt");
+string name[15] = { "Peter","Alex","Jekku","Jessie","Rob","Bob","Billy","Cleany","Chad", "Ian", "Ryan", "Stephen", "Joey", "Jason", "Annie" }; 
+
+void FileWriteR(int botnum, vector<int> botposx,vector<int> botposy) { 
 	
 	solu_file << "{\n\t\"robots\": [\n";
 	for (int i = 0; i < botnum-1 ; ++i) {
@@ -43,7 +47,7 @@ void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board) {
 	prob_file.open("case5.txt");
 	if (prob_file.is_open()) {           
 		prob_file >> max_c >> max_f >> dimx >> dimy;
-		board = createBoard(dimx, dimy); //Create Board
+		board = createBoard(dimx, dimy); 
 		for (int i = 0; i < dimx ; ++i) {
 			for (int j = 0; j < dimy; ++j) {
 				prob_file >> board[i][j];
@@ -54,6 +58,8 @@ void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board) {
 	return;
 
 }
+
+//All Action Functions for the robots
 
 void ActionUpDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int**board) { 
 	for (int i = dimx-1; i >= 0; --i) {
@@ -79,8 +85,6 @@ void ActionUpLeft(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int
 	solu_file << "\t\t[\"" << name[botnum] << "\", \"move\", [" << x-1 << ", " << y + 1 << "]]," << endl;
 
 }
-
-
 
 
 void ActionDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board) {
@@ -111,7 +115,7 @@ int main() {
 	int* locy = new int[dimy] {};
 
 
-	for (int i = 0; i < dimy; i++) {
+	for (int i = 0; i < dimy; i++) { //Starting position, even columns start left side, odd start right;
 		if (i % 2 == 0) {
 			startx.push_back(dimx);
 			starty.push_back(i);
@@ -131,14 +135,14 @@ int main() {
 	
 
 
-	for (int i = 0; i < dimy; i++) {
+	for (int i = 0; i < dimy; i++) {  //If Unpaired, robot goes up then down
 		if ((i == dimy - 1) && (i % 2 == 0)) {
 			ActionUpDown(max_c, dimx, dimy, locx[i], locy[i], dimy - i - 1, board);
 		}
-		else if ((i % 2 == 0)){
+		else if ((i % 2 == 0)){ //If one even column (0,2,4,etc.), robot goes up
 			ActionUp(max_c, dimx, dimy, locx[i], locy[i], dimy - i - 1, board);
 		}
-		else {
+		else { //If one odd column (0,2,4,etc.), robot goes down
 			ActionDown(max_c, dimx, dimy, locx[i], locy[i], dimy - i - 1, board);
 		}
 		
@@ -155,8 +159,9 @@ int main() {
 
 
 	solu_file << "\t\t[\"" << name[0] << "\", \"clean\"," << 0 << "]" << endl << "\t]" << endl << "}";
+	solu_file.close();
+	cout << "Done" << endl;
 
-
-		
+	
 	return 0;
 }
