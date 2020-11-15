@@ -7,7 +7,7 @@ using namespace std;
 void ActionDownRight(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board);
 void ActionDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board);
 void ActionUpLeft(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board); 
-void ActionUp(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board)
+void ActionUp(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int** board);
 void ActionUpDown(int max_c, int dimx, int dimy, int &x, int &y, int botnum, int**board);
 int** createBoard(int dimx, int dimy);
 void FileRead(int& max_c, int& max_f, int& dimx, int& dimy, int**& board);
