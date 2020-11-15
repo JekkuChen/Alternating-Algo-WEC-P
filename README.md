@@ -1,12 +1,12 @@
 # The Alternating Algo 
-Waterloo Engineer Competition 2020 - Programming Division 
+[Waterloo Engineer Competition 2020 - Programming Division](https://github.com/jacobdeery/WEC2020)   
 Programming Team #3
 
 ## Description
 Cleaning algorithm to determine best location for robot placement and pathfinding route to clean all tiles   
 Programmed in C++
 
-
+![Image of Algorithm](https://github.com/JekkuChen/Alternating-Algo-WEC-P/blob/main/Image.png)
 
 ## Authors
 [@JekkuChen](https://github.com/JekkuChen) (Joey Chen)  
