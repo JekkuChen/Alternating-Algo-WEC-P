@@ -3,8 +3,8 @@ Waterloo Engineer Competition 2020 - Programming Division
 Programming Team #3
 
 ## Description
-Cleaning algorithm to determine best location for robot placement and pathfinding route to clean all tiles 
-Code in C++
+Cleaning algorithm to determine best location for robot placement and pathfinding route to clean all tiles   
+Programmed in C++
 
 
 
